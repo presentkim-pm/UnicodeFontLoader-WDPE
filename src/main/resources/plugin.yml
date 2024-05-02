@@ -1,0 +1,4 @@
+name: UnicodeFontAddon
+author: PresentKim
+main: kim.present.wdpe.unicodefont.addon.UnicodeFontAddon
+version: 1.0.0

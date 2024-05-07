@@ -30,6 +30,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     compileOnly("dev.waterdog.waterdogpe:waterdog:2.0.0-SNAPSHOT")
+    implementation("com.sksamuel.scrimage:scrimage-core:4.0.37")
 }
 
 tasks.test {

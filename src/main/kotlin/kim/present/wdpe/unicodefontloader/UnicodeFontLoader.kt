@@ -1,8 +1,8 @@
-package kim.present.wdpe.unicodefont.addon
+package kim.present.wdpe.unicodefontloader
 
 import dev.waterdog.waterdogpe.plugin.Plugin
 
-class UnicodeFontAddon : Plugin() {
+class UnicodeFontLoader : Plugin() {
 
     override fun onStartup() = logger.info("UnicodeFontAddon has been started!")
 

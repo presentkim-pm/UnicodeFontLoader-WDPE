@@ -1,4 +1,4 @@
-name: UnicodeFontAddon
+name: UnicodeFontLoader
 author: PresentKim
-main: kim.present.wdpe.unicodefont.addon.UnicodeFontAddon
+main: kim.present.wdpe.unicodefontloader.UnicodeFontLoader
 version: 1.0.0

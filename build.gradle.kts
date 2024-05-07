@@ -3,7 +3,7 @@ plugins {
     id("io.github.goooler.shadow") version "8.1.5"
 }
 
-group = "kim.present.wdpe.unicodefont.addon"
+group = "kim.present.wdpe.unicodefontloader"
 version = "1.0.0-SNAPSHOT"
 
 repositories {

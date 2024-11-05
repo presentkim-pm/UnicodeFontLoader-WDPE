@@ -27,7 +27,7 @@ object GlyphTool {
 
     @JvmStatic
     fun writeGlyphFile(file: File, glyphGroup: ImmutableImage) {
-        require(file.isFile) { "The file must be a file, given $file" }
+        require(!file.exists() || file.isFile) { "The file must be a file, given $file" }
 
         glyphGroup.output(PngWriter.MaxCompression, file)
     }

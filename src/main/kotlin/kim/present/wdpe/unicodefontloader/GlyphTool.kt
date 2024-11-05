@@ -10,6 +10,9 @@ import java.io.OutputStream
 import java.security.MessageDigest
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
+import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.math.max
 
 object GlyphTool {
     @JvmStatic
@@ -125,7 +128,11 @@ object GlyphTool {
         var glyphGroup = ImmutableImage.create(maxLength * 16, maxLength * 16, BufferedImage.TYPE_INT_ARGB)
 
         glyphPieces.forEach { (key, piece) ->
-            glyphGroup = glyphGroup.overlay(piece, key.x * maxLength, key.y * maxLength)
+            glyphGroup = glyphGroup.overlay(
+                piece,
+                key.x * maxLength + floor(max(0.0, (maxLength.toDouble() - piece.width) / 2)).toInt(),
+                key.y * maxLength + ceil(max(0.0, (maxLength.toDouble() - piece.height) / 2)).toInt()
+            )
         }
 
         return glyphGroup

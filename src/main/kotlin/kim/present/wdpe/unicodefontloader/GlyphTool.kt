@@ -42,7 +42,7 @@ object GlyphTool {
         require(dir.isDirectory) { "The directory must be a directory, given $dir" }
 
         return dir.listFiles()!!
-            .filter { it.isFile && it.name.matches(Regex("^[0-9A-F]{2}\\.png$", RegexOption.IGNORE_CASE)) }
+            .filter { it.isFile && it.name.matches(Regex("^[0-9A-F]{1,2}\\.png$", RegexOption.IGNORE_CASE)) }
             .associate { file ->
                 val x = file.name[0].toString().toInt(16)
                 val y = file.name[1].toString().toInt(16)
@@ -123,7 +123,7 @@ object GlyphTool {
 
     @JvmStatic
     fun merge(glyphPieces: Map<PieceKey, ImmutableImage>): ImmutableImage {
-        val maxLength = maxOf(16, glyphPieces.maxOf { (_, value) -> value.width })
+        val maxLength = maxOf(2, glyphPieces.maxOf { (_, value) -> value.width })
 
         var glyphGroup = ImmutableImage.create(maxLength * 16, maxLength * 16, BufferedImage.TYPE_INT_ARGB)
 

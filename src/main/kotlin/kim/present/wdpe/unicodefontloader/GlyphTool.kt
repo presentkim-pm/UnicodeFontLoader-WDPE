@@ -42,8 +42,9 @@ object GlyphTool {
         return dir.listFiles()!!
             .filter { it.isFile && it.name.matches(Regex("^[0-9A-F]{1,2}\\.png$", RegexOption.IGNORE_CASE)) }
             .associate { file ->
-                val x = file.name[0].toString().toInt(16)
-                val y = file.name[1].toString().toInt(16)
+                val hexCode = file.nameWithoutExtension.padStart(2, '0')
+                val x = hexCode[1].toString().toInt(16)
+                val y = hexCode[0].toString().toInt(16)
 
                 PieceKey(x, y) to loader.fromFile(file)
             }
